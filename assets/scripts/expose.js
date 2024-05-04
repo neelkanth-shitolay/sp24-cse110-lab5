@@ -20,4 +20,26 @@ function init() {
   button.addEventListener('click', function(){
       audio.play();
   });
+
+  var slider = document.querySelector('input[type="range"]');
+  var speakerImage = document.getElementById('volume-controls').querySelector('img');
+
+  slider.addEventListener('input', function(){
+      var value = Number(slider.value);
+      audio.volume = value / 100;
+      if(value >= 67){
+        speakerImage.src = 'assets/icons/volume-level-3.svg';
+      }
+      else if(value >= 33){
+        speakerImage.src = 'assets/icons/volume-level-2.svg';
+      }
+      else if(value >= 1){
+        speakerImage.src = 'assets/icons/volume-level-1.svg';
+      }
+      else {
+        speakerImage.src = 'assets/icons/volume-level-0.svg';
+      }
+  });
+
+
 }
