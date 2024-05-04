@@ -1,5 +1,4 @@
 // expose.js
-
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
@@ -16,9 +15,13 @@ function init() {
   });
 
   var button = document.querySelector('button');
-  
+  const jsConfetti = new JSConfetti();
+
   button.addEventListener('click', function(){
-      audio.play();
+    if(selector.value == 'party-horn'){
+      jsConfetti.addConfetti();
+    }
+    audio.play();
   });
 
   var slider = document.querySelector('input[type="range"]');
